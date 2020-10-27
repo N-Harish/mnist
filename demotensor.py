@@ -1,5 +1,7 @@
 import streamlit as st
 
+import numpy as np
+
 import tensorflow as tf
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
@@ -12,5 +14,5 @@ if st.button("predict"):
     model = tf.keras.models.load_model("model.h5")
     test_img = test_images
     pred = model.predict(test_img)
-
-    st.success(pred)
+    pred1 = np.argmax(pred[0])
+    st.success(pred1)
